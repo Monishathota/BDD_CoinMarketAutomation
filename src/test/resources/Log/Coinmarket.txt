@@ -1,0 +1,6 @@
+ [INFO ] Execution of ApiScenario Started 
+ [INFO ] GTQ to GBP = 1066361.4 
+ [INFO ] GBP to DOGE = 1.7312686E7 
+ [INFO ] Response code value is 200 
+ [INFO ] Execution of APIScenario Stopped 
+ [INFO ] Execution of UIScenario Started 

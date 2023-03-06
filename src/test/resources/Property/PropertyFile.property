@@ -1,0 +1,8 @@
+ChromeDriver=src\\test\\resources\\ChromeDriver\\chromedriver.exe
+URL=https://coinmarketcap.com/
+Log4jConfigure=src\\test\\resources\\log4j.xml
+GuatemalanQuetzal=GTQ
+BritishPound=GBP
+DogeCoin=DOGE
+URI=https://pro-api.coinmarketcap.com/
+Amount=10000000
