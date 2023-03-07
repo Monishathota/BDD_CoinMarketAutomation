@@ -1,10 +1,10 @@
 Feature: Coinmarketcap page 
 
 Scenario: Coinmarketcap page activities     
-Given User want to open the coinmarketcap url 
-When User clicks on the element 20 
+Given User opens the coinmarketcap application
+When User selects 20 rows
 Then User capture the content of the page
-When User filter the Algoritham to POW
+When User applies filter on Algorithm as PoW
 And User clicks on ADDFilter
-Then User Compare the page content with previous page content
+Then User compares the filtered page content with previously captured page content
 

@@ -32,13 +32,17 @@ public class APIStepDefination {
 		RestAssured.baseURI = util.getUri();
 	}
 
-	@When("^User convert the price of Guatemalan Quetzal to British Pound and Received British Pound to doge coin$")
-	public void user_convert_the_price_of_Guatemalan_Quetzal_to_British_Pound_and_Received_British_Pound_to_doge_coin() throws Throwable {
+	@When("^User convert the price of Guatemalan Quetzal to British Pound$")
+	public void User_convert_the_price_of_Guatemalan_Quetzal_to_British_Pound() throws Throwable {
 		double amountValue =util.amount();
 		firstConversion = priceCoversion.priceCoversion(amountValue,util.guatemalanQuetzal(),util.britishPound());
 		Log.info( "GTQ to GBP = " + firstConversion);	
-		double amountValue1  = Double.parseDouble(firstConversion);
-		String finalConversion = priceCoversion.priceCoversion(amountValue1,util.britishPound(),util.dogeCoin());
+	}
+	@Then("^User convert Received British Pound to doge coin$")
+	public void user_convert_Received_British_Pound_to_doge_coin() throws Throwable
+	{
+		double amountValue  = Double.parseDouble(firstConversion);
+		String finalConversion = priceCoversion.priceCoversion(amountValue,util.britishPound(),util.dogeCoin());
 		Log.info("GBP to DOGE = " +finalConversion);
 	}
 
