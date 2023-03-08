@@ -1,28 +1,15 @@
 package PageObject;
-
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.Assertion;
 import org.testng.asserts.SoftAssert;
-
-
-
-
-
 public class CoinMarketPage {
-
 	WebDriver driver;
-	
-
 	public CoinMarketPage(WebDriver driver) 
 	{ 
 		this.driver=driver; 
@@ -54,66 +41,48 @@ public class CoinMarketPage {
 		Actions act=new Actions(driver);
 		WebElement element=driver.findElement(selectPow);
 		act.moveToElement(element).click().build().perform();
-		
 		driver.findElement(pow).click();
-		
 	}
 
-
 	public void addFilter() throws InterruptedException
-	{
+	{	
 		driver.findElement(addFilter).click();
 		driver.findElement(mineable).click();
 		Thread.sleep(2000);
 		driver.findElement(allCryptoCurrencies).click();
+		driver.manage().timeouts().implicitlyWait(2,TimeUnit.SECONDS);
 		driver.findElement(coins).click();
 		driver.findElement(price).click();
 		driver.findElement(priceRangeFrom).sendKeys("100");
 		driver.findElement(priceRangeTo).sendKeys("10000");
-		 driver.manage().timeouts().implicitlyWait(6,TimeUnit.SECONDS);
-		JavascriptExecutor javascriptExecutor=(JavascriptExecutor) driver;
-		javascriptExecutor.executeScript("scroll(0,800)");
+		driver.manage().timeouts().implicitlyWait(4,TimeUnit.SECONDS);
 		driver.findElement(applyFilter).click();
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(4,TimeUnit.SECONDS);
 		driver.findElement(showResults).click();
+		Thread.sleep(2000);
 	}
 
 	public void selectValue() 
-	{
-		
-		
+	{		
 		WebElement valueElement=driver.findElement(value);
 		String Actual= valueElement.getText();
 		valueElement.click();	
-		//driver.manage().timeouts().implicitlyWait(6,TimeUnit.SECONDS);
-		//String Actual= valueElement.getText();
 		Assertion softAssert=new SoftAssert();
 		softAssert.assertEquals(Actual, "20","element not selected");
-		
-		
-		
 	}
-	
 	public void controlOnRow()
 	{
 		WebElement element=driver.findElement(selectValue);
-		
-		//driver.manage().timeouts().implicitlyWait(2,TimeUnit.SECONDS);
 		Actions act=new Actions(driver);
 		act.moveToElement(element).click().build().perform();
-			
-		
 	}
-
-	
-	
-
 
 	public List<WebElement> availableNameContent()
 	{
 		List<WebElement> nameContentElement=driver.findElements(nameContent);
 		return nameContentElement;
 	}
+	
 
 	public List<WebElement> availablePriceContent()
 	{

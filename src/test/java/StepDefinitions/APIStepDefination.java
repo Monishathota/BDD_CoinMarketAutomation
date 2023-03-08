@@ -45,8 +45,6 @@ public class APIStepDefination {
 		String finalConversion = priceCoversion.priceCoversion(amountValue,util.britishPound(),util.dogeCoin());
 		Log.info("GBP to DOGE = " +finalConversion);
 	}
-
-	
 	@Then("^User validated the status code$")
 	public void user_validated_the_status_code() throws Throwable {
 		int code=priceCoversion.getResponseCode();

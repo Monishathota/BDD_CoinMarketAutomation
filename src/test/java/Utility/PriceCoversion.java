@@ -1,15 +1,11 @@
 package Utility;
-
 import static io.restassured.RestAssured.given;
 import org.testng.Assert;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-
 public class PriceCoversion{
-
 	Response response;
-
 	public String priceCoversion(double amount, String symbol, String convert)
 	{
 		response = given().header("X-CMC_PRO_API_KEY", "71d3419d-9127-4d58-88c2-65fdcb31ee3e")
@@ -27,7 +23,6 @@ public class PriceCoversion{
 		String jsonString = jsonPath.getString(t);
 		return jsonString;
 	}
-
 	public int getResponseCode()
 	{
 		int responseCode=response.getStatusCode();                   

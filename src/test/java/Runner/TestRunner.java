@@ -6,7 +6,7 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features ={"src/test/resources/Features/UIFeatureFile.feature"}, glue= {"StepDefinitions"},
+@CucumberOptions(features ={"src/test/resources/Features"}, glue= {"StepDefinitions"},
 
 plugin={"html:target/cucumber-html-report/index.html"})
 
